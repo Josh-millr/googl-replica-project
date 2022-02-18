@@ -15,7 +15,7 @@ const ResultContentProvider = ({ children }) => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "google-search3.p.rapidapi.com",
-        "x-rapidapi-key": "2dd8e8ea38msh09b29c83b63b77ap18a346jsnd63922c98f28",
+        "x-rapidapi-key": process.env.REACT_APP_API_KEY,
       },
     });
     const data = await response.json();
@@ -26,7 +26,7 @@ const ResultContentProvider = ({ children }) => {
       setResults(data.image_results);
     } else if (type.includes("/videos")) {
       console.log(data.results);
-      setResults(data.results); //TODO: Check this for potential error!
+      setResults(data.results);
     } else {
       setResults(data.results);
     }
